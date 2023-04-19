@@ -6,12 +6,9 @@ import App from './App';
 
 const rootElement = document.getElementById('root');
 
-// Reemplazar ReactDOM.render con createRoot
-const root = ReactDOM.createRoot(rootElement);
-
-// Encerrar todo dentro del createRoot
-root.render(
+ReactDOM.render(
   <Provider store={store}>
     <App />
-  </Provider>
+  </Provider>,
+  rootElement
 );
