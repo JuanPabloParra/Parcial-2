@@ -57,6 +57,8 @@ const PostNumber = styled.span`
 function App() {
   const dispatch = useDispatch();
   const posts = useSelector(state => state.posts);
+  const maxPosts = 100;
+  const filteredPosts = posts.slice(0, maxPosts);
 
   useEffect(() => {
     dispatch(fetchPosts());
@@ -68,9 +70,9 @@ function App() {
         <Title>API Parcial 2 Juan Pablo Parra</Title>
       </TitleContainer>
       <List>
-        {posts.map((post, index) => (
+        {filteredPosts.map((post) => (
           <ListItem key={post.id}>
-            <PostNumber>{index + 1}</PostNumber>
+            <PostNumber>{filteredPosts.indexOf(post) + 1}</PostNumber>
             <PostTitle>{post.title}</PostTitle>
             <PostBody>{post.body}</PostBody>
           </ListItem>
